@@ -1,0 +1,8 @@
+{
+    "editor.codeActionsOnSave": {
+    
+    },
+
+    "python.defaultInterpreterPath" : "/home/yanjun/.local/share/virtualenvs/backend_Flask-kUWUvSL7/bin/python3.8"
+
+}

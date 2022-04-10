@@ -1,0 +1,758 @@
+[2021-08-18 16:33:47,276 INFO app.py:86 test_db] testing mysql conn
+[2021-08-18 16:33:47,630 INFO app.py:90 test_db] testing result: [('5.7.24',)]
+[2021-08-18 16:33:47,650 INFO app.py:92 test_db] connected mysql successfully
+[2021-08-18 16:35:23,628 INFO app.py:86 test_db] testing mysql conn
+[2021-08-18 16:35:24,074 INFO app.py:90 test_db] testing result: [('5.7.24',)]
+[2021-08-18 16:35:24,100 INFO app.py:92 test_db] connected mysql successfully
+[2021-08-18 16:38:04,272 INFO app.py:86 test_db] testing mysql conn
+[2021-08-18 16:38:04,622 INFO app.py:90 test_db] testing result: [('5.7.24',)]
+[2021-08-18 16:38:04,643 INFO app.py:92 test_db] connected mysql successfully
+[2021-08-18 16:38:20,571 INFO app.py:86 test_db] testing mysql conn
+[2021-08-18 16:38:20,939 INFO app.py:90 test_db] testing result: [('5.7.24',)]
+[2021-08-18 16:38:20,960 INFO app.py:92 test_db] connected mysql successfully
+[2021-08-18 16:41:30,955 INFO app.py:86 test_db] testing mysql conn
+[2021-08-18 16:41:31,378 INFO app.py:90 test_db] testing result: [('5.7.24',)]
+[2021-08-18 16:41:31,402 INFO app.py:92 test_db] connected mysql successfully
+[2021-08-18 17:02:38,400 INFO app.py:75 test_db] testing mysql conn
+[2021-08-18 17:02:38,776 INFO app.py:79 test_db] testing result: [('5.7.24',)]
+[2021-08-18 17:02:38,798 INFO app.py:81 test_db] connected mysql successfully
+[2021-08-18 17:06:36,442 INFO app.py:75 test_db] testing mysql conn
+[2021-08-18 17:06:36,868 INFO app.py:79 test_db] testing result: [('5.7.24',)]
+[2021-08-18 17:06:36,892 INFO app.py:81 test_db] connected mysql successfully
+[2021-08-18 17:15:20,622 INFO app.py:75 test_db] testing mysql conn
+[2021-08-18 17:15:21,088 INFO app.py:79 test_db] testing result: [('5.7.24',)]
+[2021-08-18 17:15:21,112 INFO app.py:81 test_db] connected mysql successfully
+[2021-08-18 17:18:15,213 INFO app.py:75 test_db] testing mysql conn
+[2021-08-18 17:18:15,561 INFO app.py:79 test_db] testing result: [('5.7.24',)]
+[2021-08-18 17:18:15,581 INFO app.py:81 test_db] connected mysql successfully
+[2021-08-18 17:18:19,820 ERROR app.py:1891 log_exception] Exception on /auth/login [POST]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\sqlalchemy\orm\base.py", line 399, in _entity_descriptor
+    return getattr(entity, key)
+AttributeError: type object 'User' has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Python\RDB2\blueprints\auth.py", line 23, in login
+    user = User.query.filter_by(name=name, password=passwd).first()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1800, in filter_by
+    for key, value in kwargs.items()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1800, in <listcomp>
+    for key, value in kwargs.items()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\sqlalchemy\orm\base.py", line 402, in _entity_descriptor
+    "Entity '%s' has no property '%s'" % (description, key)
+sqlalchemy.exc.InvalidRequestError: Entity '<class 'models.User'>' has no property 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Projects\Python\RDB2\blueprints\auth.py", line 32, in login
+    return jsonify(Response(status=Macro.STATUS_FAIL, err_info=str(e.args)))
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\json\__init__.py", line 370, in jsonify
+    dumps(data, indent=indent, separators=separators) + "\n",
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\json\__init__.py", line 211, in dumps
+    rv = _json.dumps(obj, **kwargs)
+  File "C:\Program Files (x86)\Python37\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Program Files (x86)\Python37\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Program Files (x86)\Python37\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\json\__init__.py", line 100, in default
+    return _json.JSONEncoder.default(self, o)
+  File "C:\Program Files (x86)\Python37\lib\json\encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+[2021-08-18 17:52:46,845 INFO app.py:75 test_db] testing mysql conn
+[2021-08-18 17:52:47,333 INFO app.py:79 test_db] testing result: [('5.7.24',)]
+[2021-08-18 17:52:47,361 INFO app.py:81 test_db] connected mysql successfully
+[2021-08-18 17:54:08,337 INFO app.py:75 test_db] testing mysql conn
+[2021-08-18 17:54:08,727 INFO app.py:79 test_db] testing result: [('5.7.24',)]
+[2021-08-18 17:54:08,756 INFO app.py:81 test_db] connected mysql successfully
+[2021-08-18 18:02:18,963 INFO app.py:75 test_db] testing mysql conn
+[2021-08-18 18:02:19,432 INFO app.py:79 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:02:19,460 INFO app.py:81 test_db] connected mysql successfully
+[2021-08-18 18:05:55,739 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:05:56,090 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:05:56,109 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:07:02,330 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:07:02,851 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:07:02,881 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:19:14,038 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:19:14,487 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:19:14,513 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:19:46,986 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:19:47,350 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:19:47,370 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:22:03,896 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:22:04,290 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:22:04,310 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:22:32,735 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:22:33,091 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:22:33,112 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:23:05,420 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:23:05,807 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:23:05,828 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:23:44,702 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:23:45,198 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:23:45,226 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:24:13,611 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:24:14,045 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:24:14,069 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:24:48,913 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:24:49,289 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:24:49,311 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 18:28:17,379 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 18:28:17,787 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 18:28:17,810 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 20:39:35,071 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 20:39:35,509 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 20:39:35,534 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 20:39:41,161 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 20:39:41,634 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 20:39:41,662 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 20:43:46,681 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 20:43:47,137 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 20:43:47,163 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 20:44:35,241 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 20:44:35,604 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 20:44:35,624 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 20:49:19,397 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 20:49:19,774 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 20:49:19,795 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 20:50:34,243 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 20:50:34,687 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 20:50:34,713 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 20:50:50,210 ERROR app.py:1891 log_exception] Exception on /manage/test_create [POST]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2130, in make_response
+    " {rv.__class__.__name__}.".format(rv=rv)
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a Response.
+[2021-08-18 20:52:01,197 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 20:52:01,680 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 20:52:01,708 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 20:53:56,327 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 20:53:56,696 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 20:53:56,717 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 21:13:51,627 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 21:13:52,113 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:13:52,141 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 21:16:09,553 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 21:16:10,009 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:16:10,035 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 21:16:55,412 ERROR app.py:1891 log_exception] Exception on /manage/qrcode_create [POST]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2130, in make_response
+    " {rv.__class__.__name__}.".format(rv=rv)
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a int.
+[2021-08-18 21:17:24,223 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 21:17:24,584 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:17:24,603 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 21:25:31,945 INFO app.py:76 test_db] testing mysql conn
+[2021-08-18 21:25:32,323 INFO app.py:80 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:25:32,344 INFO app.py:82 test_db] connected mysql successfully
+[2021-08-18 21:31:57,848 INFO app.py:77 test_db] testing mysql conn
+[2021-08-18 21:31:58,307 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:31:58,332 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-18 21:32:42,042 ERROR app.py:1891 log_exception] Exception on /test_pf/testee_list [POST]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2097, in make_response
+    "The view function did not return a valid response. The"
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[2021-08-18 21:33:17,188 ERROR app.py:1891 log_exception] Exception on /test_pf/testee_list [POST]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2097, in make_response
+    "The view function did not return a valid response. The"
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+[2021-08-18 21:36:46,082 INFO app.py:77 test_db] testing mysql conn
+[2021-08-18 21:36:46,542 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:36:46,571 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-18 21:36:52,822 ERROR app.py:1891 log_exception] Exception on /test_pf/testee_list [POST]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2130, in make_response
+    " {rv.__class__.__name__}.".format(rv=rv)
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a Response.
+[2021-08-18 21:37:28,080 INFO app.py:77 test_db] testing mysql conn
+[2021-08-18 21:37:28,548 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:37:28,575 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-18 21:53:15,470 INFO app.py:77 test_db] testing mysql conn
+[2021-08-18 21:53:15,944 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:53:15,972 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-18 21:53:57,309 ERROR app.py:1891 log_exception] Exception on /test_pf/score_submit [POST]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 1967, in finalize_request
+    response = self.make_response(rv)
+  File "D:\Projects\Python\Flask_Permission_Test\venv\lib\site-packages\flask\app.py", line 2130, in make_response
+    " {rv.__class__.__name__}.".format(rv=rv)
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a Response.
+[2021-08-18 21:54:18,453 INFO app.py:77 test_db] testing mysql conn
+[2021-08-18 21:54:18,933 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:54:18,960 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-18 21:58:21,338 INFO app.py:77 test_db] testing mysql conn
+[2021-08-18 21:58:21,794 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-18 21:58:21,822 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 20:27:49,467 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 20:27:49,793 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 20:27:49,812 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 20:28:18,230 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 20:28:18,588 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 20:28:18,608 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 20:30:40,329 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 20:30:40,708 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 20:30:40,729 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 20:43:56,711 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 20:43:57,057 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 20:43:57,085 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 20:52:12,578 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 20:52:12,953 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 20:52:12,974 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 20:53:05,189 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 20:53:05,620 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 20:53:05,645 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 20:54:49,432 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 20:54:49,874 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 20:54:49,900 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:24:40,122 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:24:40,586 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:24:40,612 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:32:17,655 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:32:18,013 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:32:18,032 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:33:09,467 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:33:09,853 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:33:09,874 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:33:48,793 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:33:49,180 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:33:49,203 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:40:37,115 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:40:37,590 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:40:37,618 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:51:33,565 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:51:33,908 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:51:33,928 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:54:06,361 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:54:06,789 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:54:06,813 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:55:35,805 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:55:36,191 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:55:36,212 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:57:35,039 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:57:35,416 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:57:35,437 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:58:13,901 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:58:14,371 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:58:14,397 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 21:59:31,165 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 21:59:31,623 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 21:59:31,649 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:00:17,577 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:00:17,946 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:00:17,967 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:01:06,047 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:01:06,427 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:01:06,449 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:01:41,503 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:01:41,981 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:01:42,009 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:03:26,368 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:03:27,889 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:03:27,917 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:04:36,706 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:04:37,057 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:04:37,077 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:05:49,519 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:05:49,956 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:05:49,980 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:16:21,902 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:16:22,295 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:16:22,317 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:17:03,328 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:17:03,697 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:17:03,725 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:19:11,284 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:19:11,643 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:19:11,663 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:19:26,748 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:19:27,226 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:19:27,253 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:20:04,890 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:20:05,345 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:20:05,371 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:23:07,226 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:23:07,581 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:23:07,602 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:24:07,485 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:24:07,956 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:24:07,983 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:24:48,996 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:24:49,439 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:24:49,466 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:32:38,334 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:32:38,806 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:32:38,844 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:33:07,603 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:33:09,015 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:33:09,036 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:34:35,237 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:34:35,632 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:34:35,653 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:39:50,497 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:39:50,860 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:39:50,893 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:40:03,718 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:40:04,074 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:40:04,097 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-19 22:40:51,755 INFO app.py:77 test_db] testing mysql conn
+[2021-08-19 22:40:52,202 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-19 22:40:52,228 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-20 13:16:06,309 INFO app.py:77 test_db] testing mysql conn
+[2021-08-20 13:16:06,828 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-20 13:16:06,856 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-20 14:25:19,872 INFO app.py:77 test_db] testing mysql conn
+[2021-08-20 14:25:20,316 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-20 14:25:20,342 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-20 14:26:55,827 INFO app.py:77 test_db] testing mysql conn
+[2021-08-20 14:26:56,192 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-20 14:26:56,214 INFO app.py:83 test_db] connected mysql successfully
+[2021-08-20 14:32:13,773 INFO app.py:77 test_db] testing mysql conn
+[2021-08-20 14:32:14,133 INFO app.py:81 test_db] testing result: [('5.7.24',)]
+[2021-08-20 14:32:14,157 INFO app.py:83 test_db] connected mysql successfully
+[2021-09-08 14:23:16,072 INFO app.py:60 test_db] testing mysql conn
+[2021-09-08 14:23:16,352 INFO app.py:64 test_db] testing result: [('5.7.24',)]
+[2021-09-08 14:23:16,368 INFO app.py:66 test_db] connected mysql successfully
+[2021-09-08 14:45:50,901 INFO app.py:60 test_db] testing mysql conn
+[2021-09-08 14:45:51,188 INFO app.py:64 test_db] testing result: [('5.7.24',)]
+[2021-09-08 14:45:51,206 INFO app.py:66 test_db] connected mysql successfully
+[2021-09-08 14:46:33,274 INFO app.py:60 test_db] testing mysql conn
+[2021-09-08 14:46:33,556 INFO app.py:64 test_db] testing result: [('5.7.24',)]
+[2021-09-08 14:46:33,573 INFO app.py:66 test_db] connected mysql successfully
+[2021-09-08 14:49:35,107 INFO app.py:60 test_db] testing mysql conn
+[2021-09-08 14:49:35,372 INFO app.py:64 test_db] testing result: [('5.7.24',)]
+[2021-09-08 14:49:35,388 INFO app.py:66 test_db] connected mysql successfully
+[2021-09-08 14:50:47,521 INFO app.py:60 test_db] testing mysql conn
+[2021-09-08 14:50:47,823 INFO app.py:64 test_db] testing result: [('5.7.24',)]
+[2021-09-08 14:50:47,840 INFO app.py:66 test_db] connected mysql successfully
+[2021-09-15 14:20:37,382 INFO app.py:60 test_db] testing mysql conn
+[2021-09-15 14:20:38,446 ERROR app.py:70 test_db] fail to connect to mysql
+[2021-09-15 14:20:38,447 ERROR app.py:71 test_db] (MySQLdb._exceptions.OperationalError) (1045, "Access denied for user 'root'@'210.30.193.194' (using password: YES)")
+[2021-09-15 14:20:38,447 ERROR app.py:104 init_app] fail to connect to database, exit
+[2021-10-04 09:05:45,170 INFO app.py:60 test_db] testing mysql conn
+[2021-10-04 09:06:06,223 ERROR app.py:70 test_db] fail to connect to mysql
+[2021-10-04 09:06:06,223 ERROR app.py:71 test_db] (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '39.102.32.150' (10060)")
+[2021-10-04 09:06:06,223 ERROR app.py:104 init_app] fail to connect to database, exit
+[2021-10-04 09:06:29,262 INFO app.py:60 test_db] testing mysql conn
+[2021-10-04 09:06:50,304 ERROR app.py:70 test_db] fail to connect to mysql
+[2021-10-04 09:06:50,304 ERROR app.py:71 test_db] (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '39.102.32.150' (10060)")
+[2021-10-04 09:06:50,304 ERROR app.py:104 init_app] fail to connect to database, exit
+[2021-10-04 09:07:28,025 INFO app.py:60 test_db] testing mysql conn
+[2021-10-04 09:07:49,044 ERROR app.py:70 test_db] fail to connect to mysql
+[2021-10-04 09:07:49,044 ERROR app.py:71 test_db] (MySQLdb._exceptions.OperationalError) (2002, "Can't connect to MySQL server on '39.102.32.150' (10060)")
+[2021-10-04 09:07:49,044 ERROR app.py:104 init_app] fail to connect to database, exit
+[2021-10-18 15:07:59,851 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:09:40,210 INFO app.py:64 test_db] testing result: [('5.7.24',)]
+[2021-10-18 15:09:40,225 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:31:39,727 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:31:59,456 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:34:55,063 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:35:10,348 INFO app.py:64 test_db] testing result: [('5.7.24',)]
+[2021-10-18 15:35:10,365 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:38:17,533 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:38:17,548 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:38:17,548 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:39:00,679 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:39:00,692 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:39:00,692 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:39:40,930 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:39:40,941 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:39:40,942 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:40:13,981 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:40:13,997 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:40:13,997 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:44:43,778 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:44:43,791 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:44:43,792 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:45:22,866 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:45:22,877 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:45:22,878 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:50:16,253 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:50:16,265 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:50:16,266 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:55:00,879 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:55:00,889 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:55:00,890 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:55:56,819 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:55:56,832 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:55:56,832 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 15:59:29,019 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 15:59:29,031 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 15:59:29,031 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 16:15:57,216 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 16:15:57,228 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 16:15:57,228 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 16:16:07,297 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 16:16:07,312 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 16:16:07,312 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 17:25:57,713 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 17:25:57,783 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 17:25:57,783 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:18:03,643 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:18:03,656 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:18:03,656 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:18:30,152 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:18:30,174 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:18:30,175 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:18:59,374 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:18:59,393 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:18:59,393 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:21:05,987 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:21:06,008 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:21:06,009 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:25:18,468 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:25:18,488 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:25:18,488 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:29:38,897 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:29:38,916 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:29:38,917 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:32:06,322 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:32:06,342 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:32:06,343 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:40:26,493 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:40:26,513 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:40:26,513 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:41:22,766 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:41:22,778 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:41:22,778 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:41:49,718 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:41:49,740 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:41:49,740 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:42:49,308 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:42:49,327 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:42:49,328 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:43:23,566 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:43:23,587 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:43:23,588 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:43:58,760 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:43:58,773 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:43:58,774 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:44:41,069 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:44:41,088 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:44:41,088 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:47:30,036 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:47:30,055 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:47:30,055 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:48:47,366 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:48:47,379 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:48:47,379 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:48:51,504 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:48:51,522 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:48:51,522 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-18 20:52:30,674 INFO app.py:60 test_db] testing mysql conn
+[2021-10-18 20:52:30,697 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-18 20:52:30,697 INFO app.py:66 test_db] connected mysql successfully
+[2021-10-19 14:27:38,140 INFO app.py:60 test_db] testing mysql conn
+[2021-10-19 14:27:38,154 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-10-19 14:27:38,155 INFO app.py:66 test_db] connected mysql successfully
+[2021-11-05 13:23:03,476 INFO app.py:60 test_db] testing mysql conn
+[2021-11-05 13:23:03,496 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-11-05 13:23:03,497 INFO app.py:66 test_db] connected mysql successfully
+[2021-11-05 13:23:24,358 INFO app.py:60 test_db] testing mysql conn
+[2021-11-05 13:23:24,381 INFO app.py:64 test_db] testing result: [('8.0.22',)]
+[2021-11-05 13:23:24,381 INFO app.py:66 test_db] connected mysql successfully
+[2021-11-05 13:29:50,929 INFO app.py:61 test_db] testing mysql conn
+[2021-11-05 13:29:50,951 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2021-11-05 13:29:50,952 INFO app.py:67 test_db] connected mysql successfully
+[2021-11-05 13:57:53,663 INFO app.py:61 test_db] testing mysql conn
+[2021-11-05 13:57:53,686 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2021-11-05 13:57:53,687 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:41:49,199 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:41:49,413 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:41:49,415 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:45:48,359 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:45:48,415 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:45:48,418 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:46:14,337 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:46:14,419 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:46:14,422 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:51:07,793 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:51:07,883 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:51:07,887 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:52:18,765 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:52:18,833 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:52:18,836 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:53:20,336 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:53:20,415 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:53:20,418 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:54:34,860 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:54:34,932 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:54:34,934 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:59:18,910 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:59:19,023 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:59:19,026 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 16:59:46,797 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 16:59:46,889 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 16:59:46,892 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:01:44,782 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:01:44,833 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:01:44,835 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:02:46,169 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:02:46,272 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:02:46,277 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:05:12,359 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:05:12,431 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:05:12,434 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:23:30,161 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:23:30,241 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:23:30,245 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:25:43,202 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:25:43,286 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:25:43,289 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:27:05,897 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:27:05,987 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:27:05,992 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:29:22,268 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:29:22,350 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:29:22,352 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:31:50,559 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:31:50,624 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:31:50,626 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:33:04,777 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:33:04,855 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:33:04,858 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:33:58,455 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:33:58,512 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:33:58,514 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:41:16,813 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:41:16,898 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:41:16,901 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:44:57,550 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:44:57,611 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:44:57,614 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 17:57:46,104 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 17:57:46,162 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 17:57:46,164 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:01:15,522 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:01:15,590 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:01:15,596 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:02:20,495 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:02:20,573 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:02:20,577 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:11:07,307 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:11:07,396 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:11:07,399 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:12:09,972 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:12:10,039 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:12:10,041 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:14:28,331 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:14:28,376 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:14:28,378 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:20:14,413 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:20:14,501 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:20:14,504 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:21:02,998 ERROR app.py:1890 log_exception] Exception on /manage/test_permission_required [GET]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Framework23\methods.py", line 39, in decorated_function
+    abort(403)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\werkzeug\exceptions.py", line 772, in abort
+    return _aborter(status, *args, **kwargs)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\werkzeug\exceptions.py", line 753, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.Forbidden: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Projects\Python\Framework23\methods.py", line 69, in decorated_function
+    log_remarks = "excp" + str(e.args[0]).left(200)
+IndexError: tuple index out of range
+[2022-03-28 18:21:54,208 ERROR app.py:1890 log_exception] Exception on /manage/test_permission_required [GET]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Framework23\methods.py", line 39, in decorated_function
+    abort(403)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\werkzeug\exceptions.py", line 772, in abort
+    return _aborter(status, *args, **kwargs)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\werkzeug\exceptions.py", line 753, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.Forbidden: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Projects\Python\Framework23\methods.py", line 69, in decorated_function
+    log_remarks = "excp" + str(e.args[0]).left(200)
+IndexError: tuple index out of range
+[2022-03-28 18:23:17,736 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:23:17,821 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:23:17,824 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:23:40,938 ERROR app.py:1890 log_exception] Exception on /manage/test_permission_required [GET]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Framework23\methods.py", line 39, in decorated_function
+    abort(403)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\werkzeug\exceptions.py", line 772, in abort
+    return _aborter(status, *args, **kwargs)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\werkzeug\exceptions.py", line 753, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.Forbidden: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Projects\Python\Framework23\methods.py", line 69, in decorated_function
+    log_remarks = "excp" + str(e.args[0]).left(200)
+IndexError: tuple index out of range
+[2022-03-28 18:23:59,438 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:23:59,547 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:23:59,552 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:59:02,731 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:59:02,809 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:59:02,811 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 18:59:50,510 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 18:59:50,590 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 18:59:50,593 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:01:39,750 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:01:39,833 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:01:39,836 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:02:16,049 ERROR app.py:1890 log_exception] Exception on /manage/test_permission_required [GET]
+Traceback (most recent call last):
+  File "D:\Projects\Python\Framework23\methods.py", line 39, in decorated_function
+    abort(403)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\werkzeug\exceptions.py", line 772, in abort
+    return _aborter(status, *args, **kwargs)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\werkzeug\exceptions.py", line 753, in __call__
+    raise self.mapping[code](*args, **kwargs)
+werkzeug.exceptions.Forbidden: 403 Forbidden: You don't have the permission to access the requested resource. It is either read-protected or not readable by the server.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\GAC\.virtualenvs\Framework23\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\Projects\Python\Framework23\methods.py", line 69, in decorated_function
+    log_remarks = "excp: " + str(e.args[0])[0:200]
+IndexError: tuple index out of range
+[2022-03-28 19:03:15,682 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:03:15,747 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:03:15,749 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:05:03,066 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:05:03,152 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:05:03,156 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:07:40,080 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:07:40,151 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:07:40,155 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:08:01,835 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:08:01,883 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:08:01,885 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:08:52,856 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:08:52,983 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:08:52,987 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:10:52,529 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:10:52,581 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:10:52,583 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:12:28,558 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:12:28,597 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:12:28,599 INFO app.py:67 test_db] connected mysql successfully
+[2022-03-28 19:15:06,505 INFO app.py:61 test_db] testing mysql conn
+[2022-03-28 19:15:06,543 INFO app.py:65 test_db] testing result: [('8.0.22',)]
+[2022-03-28 19:15:06,545 INFO app.py:67 test_db] connected mysql successfully

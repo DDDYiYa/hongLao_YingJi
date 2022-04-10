@@ -1,0 +1,2 @@
+FLASK_ENV=develpment
+FLASK_DEBUGGER=off
