@@ -50,6 +50,7 @@ Werkzeug = "==0.16.0"
 zipp = "==3.4.1"
 
 [dev-packages]
+faker = "*"
 
 [requires]
 python_version = "3.8"
