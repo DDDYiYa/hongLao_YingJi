@@ -227,23 +227,18 @@ class bdz_info(db.Model):
     __tablename__ = "bianDianZhan_info"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), index=True)
-    # type = db.Column(db.String(128))
     # 位置信息
     x = db.Column(db.Float)
     y = db.Column(db.Float)
     city = db.Column(db.String(128))
-    # district = db.Column(db.String(128))
 
 # 变电站故障信息
 class bdz_failure(db.Model):
     __tablename__ = "bianDianZhan_failure"
     id = db.Column(db.Integer, primary_key=True)
-    # 故障信息 故障码1~9，不同数字代表不同类型的故障。
-    # failure_type = db.Column(db.Interger)   
-    # failure_level = db.Column(db.Interger)   
-    # The supported range is '1000-01-01' to '9999-12-31'.
     date = db.Column(db.Date)  
-    bdz_name = db.Column(db.String)
+    # bdz_name = db.Column(db.String(128))
+    bdz_id = db.Column(db.Integer())
 
 
 # 气象数据
