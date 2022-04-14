@@ -5,6 +5,7 @@ from functools import wraps
 import datetime
 import uuid
 from settings import *
+import decimal
 
 def permission_can(current_user, permission):
     """
@@ -117,3 +118,22 @@ def add_log(admin_id, remarks=None):
                                 user_id=admin_id, oper_time=datetime.datetime.now(),remarks=remarks)
     db.session.add(sys_oper_log)
     db.session.commit()
+    
+def execute_sql(engine, sql):
+    conn = engine.connect()
+    app.logger.debug(sql)
+    ret = conn.execute(sql)
+    if ret.returns_rows is True:
+        ret = ret.fetchall()
+    conn.close()
+    return ret
+
+
+def convert_tuple_dict(data, attrs, myrange=None):
+    ret = {}
+    for i, attr in enumerate(attrs):
+        if isinstance(data[i], decimal.Decimal):
+            ret[attr] = float(data[i])
+        else:
+            ret[attr] = data[i]
+    return ret

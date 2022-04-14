@@ -13,6 +13,7 @@ from sqlalchemy import create_engine
 from blueprints.auth import auth_bp
 from blueprints.manage import manage_bp
 from blueprints.test_pf import test_pf_bp
+from blueprints.honglao import honglao_bp
 
 
 
@@ -109,6 +110,7 @@ def init_app(app):
     app.register_blueprint(auth_bp, url_prefix='/auth')
     app.register_blueprint(manage_bp, url_prefix='/manage')
     app.register_blueprint(test_pf_bp, url_prefix='/test_pf')
+    app.register_blueprint(honglao_bp, url_prefix='/honglao')
 
     return app
 

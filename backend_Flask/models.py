@@ -224,20 +224,20 @@ class Setting(db.Model):
 
 # 变电站基本信息、位置信息
 class bdz_info(db.Model):
-    __tablename__ = "bianDianZhan_info"
+    __tablename__ = "bdz_info"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(128), index=True)
+    coding = db.Column(db.String(128), index=True)
+    name = db.Column(db.String(128))
     # 位置信息
     x = db.Column(db.Float)
     y = db.Column(db.Float)
     city = db.Column(db.String(128))
 
 # 变电站故障信息
-class bdz_failure(db.Model):
-    __tablename__ = "bianDianZhan_failure"
+class bdz_fail(db.Model):
+    __tablename__ = "bdz_fail"
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date)  
-    # bdz_name = db.Column(db.String(128))
     bdz_id = db.Column(db.Integer())
 
 

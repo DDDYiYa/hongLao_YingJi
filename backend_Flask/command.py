@@ -1,6 +1,6 @@
 import click
 from app import app, db
-from models import  bdz_failure
+from models import  bdz_fail
 
 # 自定义建表命令
 @app.cli.command()
@@ -21,9 +21,9 @@ def forge(count):
     click.echo('working......')
 
     for i in range(count):
-        bdz_failure_tmp =  bdz_failure(
+        bdz_failure_tmp =  bdz_fail(
             date=fake.date_this_decade(),
-            bdz_id=fake.random_int(min=0,max=116352)
+            bdz_id=fake.random_int(min=0,max=163245)
         )
 
         db.session.add(bdz_failure_tmp)
