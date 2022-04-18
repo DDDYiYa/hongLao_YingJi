@@ -1,0 +1,192 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+@import "~ng-zorro-antd/style/index.min.css";
+
+.part1{
+  background-color: #142436;
+}
+.zoom-in{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.lue{ float:left; width: 33%; height: 340px; margin-top: -.25rem;}
+.lue1{ float:left; width: 100%; height: 350px;margin-top: -.25rem;}
+.lue2{ float:left; width: 100%; height: 350px;margin-top: -.25rem;}
+.lue6{ float:left; width: 100%; height: 233px; margin-top: -.25rem;}
+.lue5{ width: 100%; height: 290px;}
+.grid-config2 {
+  margin-top: 12px;
+  border-radius: 3px;
+  overflow: auto;
+}
+.nz-table{
+  border-color: #142436;
+}
+.chart-title {
+  background: url(assets/img/bt.png) top left no-repeat;
+  background-size: 100% 100%;
+  padding: 0 6px;
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 40px;
+  color: white;
+}
+.chart {
+  width: 100%;
+  height: 370px;
+}
+.chart1 {
+  width: 100%;
+  height: 300px;
+}
+.chart2 {
+  width: 100%;
+  height: 300px;
+}
+.weather-box {
+  width: 100%;
+  height: 200px;
+
+  align-items: center;
+}
+.weather-box>.data {
+  width: 100%;;
+  color: white;
+  font-size: 60px;
+  /*border-right: 2px solid #cdddf7;*/
+}
+.data>p {
+  font-size: 15px;
+  /*margin: 0 5px;*/
+  color: #cdddf7;
+  text-align: center;
+  margin: 0;
+}
+
+.weather>div>p {
+  font-size: 18px;
+  margin: 0 5px;
+  color: #cdddf7;
+}
+
+.data>p.time {
+  font-size: 0.42rem;
+  height: 0.42rem;
+  line-height: 0.42rem;
+}
+.weather>div>p.tianQi {
+  color: white;
+  font-size: 16px;
+}
+.zoom-in{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.lue{ float:left; width: 100%; height: 250px; margin-top: -.25rem;}
+/*.lue{ float:left; width: 33%; height: 230px; margin-top: -.25rem;}*/
+.lue1{ float:left; width: 50%; height: 250px; margin-top: -.25rem;}
+.grid-config2 {
+  margin-top: 12px;
+  border: 5px solid rgba(69,105,144,0.3);
+  background-color: #142436;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.nz-table{
+  border-color: #142436;
+}
+.chart-title {
+  /*border-bottom: 0.5px solid #CCCCCC;*/
+  /*background-color: rgba(19, 53, 81,1);*/
+  background:transparent url("assets/img/表头.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 0 6px;
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 40px;
+  color: white;
+}
+.chart {
+  width: 100%;
+  height: 400px;
+}
+.chart3 {
+  width: 100%;
+  height: 400px;
+}
+.chart4{
+  width: 33%;
+  height: 400px;
+  float: left;
+}
+.chart1 {
+  width: 100%;
+  height: 280px;
+}
+.chart2 {
+  float: top;
+  width: 100%;
+  height: 280px!important;
+}
+.weather-box {
+  width: 100%;
+  height: 200px;
+  /*border: 1px solid #0E94EA;*/
+  /*display: flex;*/
+  /*flex-flow: row nowrap;*/
+  /*justify-content: space-around;*/
+  align-items: center;
+}
+.weather-box>.data {
+  width: 100%;;
+  color: white;
+  font-size: 60px;
+  /*border-right: 2px solid #cdddf7;*/
+}
+.data>p {
+  font-size: 15px;
+  /*margin: 0 5px;*/
+  color: #cdddf7;
+  text-align: center;
+  margin: 0;
+}
+
+.weather>div>p {
+  font-size: 18px;
+  margin: 0 5px;
+  color: #cdddf7;
+}
+
+.data>p.time {
+  font-size: 0.42rem;
+  height: 0.42rem;
+  line-height: 0.42rem;
+}
+.weather>div>p.tianQi {
+  color: white;
+  font-size: 16px;
+}
+
+.col1 {
+  width: 29%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  float: left;
+}
+.col2 {
+ width: 39%;
+ margin-left: 12px;
+ float: left;
+}
+.col3 {
+ width: 29%;
+ margin-left: 12px;
+ margin-right: 20px;
+ float: left;
+}

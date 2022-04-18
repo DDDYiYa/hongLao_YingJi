@@ -1,0 +1,60 @@
+<div class="gutter-example" [nzGutter]="24" nz-row style="width: 100%">
+  <div nz-col [nzSpan]="7">
+    <div nz-col class="grid-config2" style="height: 350px; margin-top: 2%;">
+      <div class="chart-title">
+        <img src="assets/img/tjt.png" height="25" width="25"/>
+        <span style="font-size: 25px">本年度各地级市发生山火次数及面积累计</span>
+      </div>
+      <div class="chart" echarts [options]="BarFireNumAreaByCity" style="height: 300px"></div>
+    </div>
+    <div class="grid-config2" style="border-style: dashed; font-size: 27px">
+      <p style="color:white;margin-left: 5%">发生山火次数最多的城市：<span style="color:red;" >沈阳市|3次</span></p>
+      <p style="color:white;margin-left: 5%;">发生山火面积最大的城市：<span style="color:red;">沈阳市|50公顷</span></p>
+    </div>
+    <div class="grid-config2" style="height: 350px">
+      <div class="chart-title">
+        <img src="../../../assets/img/tjt.png" height="25" width="25"/>
+        <font size="5">辽宁省发生山火地区分布</font>
+      </div>
+      <div>
+        <div class="lue1" echarts [options]="optionCityWXY1" style="height: 300px;"></div>
+        <div class="lue1" echarts [options]="optionCityWXY2" style="height: 300px;"></div>
+      </div>
+    </div>
+  </div>
+  <div nz-col class="grid-config2" [nzSpan]="10">
+    <div style="text-align: center;font-size: 40px; font-weight: bolder;color: white;width: 100%">
+      <p style="margin:0 auto">{{companyScoreInformation[6].value}}发生山火次数：<span style="font-size: 50px; color: #FF0000">{{companyScoreInformation[1].value}}</span>个</p>
+      <nz-breadcrumb>
+        <div style="color: white; text-align: center; font-size: 20px;">
+          <nz-breadcrumb-item><a routerLink="/history" style="color: white">辽宁省</a></nz-breadcrumb-item>
+          <nz-breadcrumb-item *ngIf="region">{{region}}</nz-breadcrumb-item>
+        </div>
+      </nz-breadcrumb>
+    </div>
+    <div style="height: 87%; width: 98%; margin: auto">
+      <div id="map1" style="height: 100%;width: 100%"></div>
+    </div>
+  </div>
+  <div nz-col class="gutter-row" [nzSpan]="7 ">
+    <div nz-col class="grid-config2" style="height: 350px; margin-top: 2%;">
+      <div class="chart-title">
+        <img src="assets/img/tjt.png" height="25" width="25"/>
+        <span style="font-size: 25px">各年度本省发生山火次数及面积累计</span>
+      </div>
+      <div class="chart" echarts [options]="BarFireNumAreaByYear" style="height: 300px"></div>
+    </div>
+    <div class="grid-config2" style="border-style: dashed; font-size: 27px">
+      <p style="color:white;margin-left: 5%;">发生山火次数最多的年份：<span style="color:red;" >2019年|5次</span></p>
+      <p style="color:white;margin-left: 5%;">发生山火面积最大的年份：<span style="color:red;">2019年|50公顷</span></p>
+    </div>
+    <div class="grid-config2" style="height:350px">
+      <div class="chart-title">
+        <img src="../../../assets/img/tjt.png" height="25" width="25"/>
+        <font size="5"><span>{{companyScoreInformation[6].value}}发生山火等级分布</span></font>
+      </div>
+      <div class="chart" echarts [options]="optionCompanyScore" style="height: 300px;"></div>
+    </div>
+  </div>
+</div>
+
