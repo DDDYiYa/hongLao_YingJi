@@ -8,7 +8,7 @@ import { HonglaoPage1Component } from './honglao/honglao-page1/honglao-page1.com
 const routes: Routes = [
   {
     path: '', component: IndexComponent, children: [
-      { path: '', pathMatch: 'full', redirectTo: '/fail' },
+      { path: '', pathMatch: 'full', redirectTo: '/honglao' },
       {
         path: 'hazard',
         component: Page1Component
@@ -18,7 +18,7 @@ const routes: Routes = [
         component: Page2Component
       },
       {
-        path: 'fail',
+        path: 'honglao',
         component: HonglaoPage1Component
       },
     ]

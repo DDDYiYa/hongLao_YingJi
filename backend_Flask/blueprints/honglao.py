@@ -12,7 +12,7 @@ honglao_bp = Blueprint('honglao',__name__)
 def test():
     return "test successfully"
 
-# 按地区查询变电站发生故障的次数
+# 按地区查询发生故障变电站的名称、经纬度
 @honglao_bp.route('/bdz_fail/list', methods=['POST'])
 def bdz_fail_List():
     try:
@@ -88,3 +88,4 @@ def bdz_fail_Count_thisYear():
         app.logger.error(sql)
         app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
+

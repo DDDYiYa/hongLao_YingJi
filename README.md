@@ -47,16 +47,25 @@
 
 ## 前端
 
-**安装 Angular**
+### 安装 Angular
+
 需要安装 node.js, typescript，typings，ts-node，Angular。
 
 1. 安装node.js
 1. 安装 Angular
 ``$ npm install -g @angular/cli``
 
-**安装 Angular 组件库 NG-ZORRO**
+### 安装 Angular 组件库 NG-ZORRO
+
 进入项目文件夹，执行以下命令后将自动完成 ng-zorro-antd 的初始化配置，包括引入国际化文件，导入模块，引入样式文件等工作。
 ``$ ng add ng-zorro-antd``
+
+### 统计图表设计
+
+#### 页面1：变电站故障信息
+
+**模仿泵张第一页**
+模仿泵站第一页
 
 ## 我遇到的问题
 

@@ -19,6 +19,15 @@ export class CommonService {
     return this.http.get(`./assets/map/liaoning/${city}.json`)
   }
 
+  public getMapInfo(region? :any): Observable<any>{
+    if (region) {
+      return this.http.get(`./assets/map/liaoning/${region}.json`)
+    } else {
+      return this.http.get('./assets/map/json/province/liaoning.json')
+    }
+
+  }
+
   options = {withCredentials: true, headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
   // 本年度每个市变电站的故障次数
