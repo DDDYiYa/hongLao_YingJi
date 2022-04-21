@@ -201,7 +201,7 @@ export class Page1LeftComponent implements OnInit {
 
       series: [
         {
-          data: [2201,2530,2151,1733,1542,1471,1443,1439,1433,1374,1339],
+          data: [2201,2530,2151,1733,1542,1471,1443,1439,1433,1374,1339,1000],
           type: 'bar',
         }
       ]
