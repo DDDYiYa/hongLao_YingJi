@@ -13,16 +13,19 @@ export class Page1LeftComponent implements OnInit {
   
   constructor(private http: CommonService ) { }
 
-  option={};
-  option2={};
-
   ngOnInit(): void {
     this.setOption();
     this.setOption2();
   }
 
-  setOption(){
+  // 获取当前时间
+  now:any = new Date();
+  year = this.now.getFullYear();
+  month = this.now.getMonth()+1;
 
+  // 各地市变电站故障次数 今年去年同期
+  option={};
+  setOption(){
     this.option = {
 
       tooltip: {
@@ -31,6 +34,16 @@ export class Page1LeftComponent implements OnInit {
           type:'shadow'
         },
       },
+
+      legend: {
+        top: 20,
+        textStyle: {
+          color: "#fff",
+          fontSize:18
+        },
+        itemWidth: 10,  // 设置宽度
+        itemHeight: 10, // 设置高度
+        },
 
       toolbox:{
         show: true,
@@ -80,7 +93,7 @@ export class Page1LeftComponent implements OnInit {
 
       yAxis: {
         type: 'value',
-        name: '跳闸次数/次',
+        name: '故障次数',
         minInterval: 1,
         splitNumber: 4,
         nameTextStyle: {
@@ -105,15 +118,53 @@ export class Page1LeftComponent implements OnInit {
 
       series: [
         {
-          data: [3201,2530,1151,733,542,471,443,439,433,374,339,330,313,312],   //近十年累计变电站故障次数
-          // data: [3201,2530,1151,733,542,471,443,439,433,374,339,330,313,312],
+          // data: [3201,2530,1151,733,542,471,443,439,433,374,339,330,313,312],   //近十年累计变电站故障次数
+          data: (function() {
+            var res = []
+            var len = 14
+            while (len--) {
+              res.push(Math.round(Math.random() * 100))
+            }
+            return res
+          })(),
           type: 'bar',
+          name:'2022',
+          barWidth: 10,
+          itemStyle: {
+            normal: {
+                barBorderRadius: 50,
+                color: "#446ACF",
+            }
+          },
+        },
+        {
+          data: (function() {
+            var res = []
+            var len = 14
+            while (len--) {
+              res.push(Math.round(Math.random() * 100))
+            }
+            return res
+          })(),
+          type: 'bar',
+          name:'2021',
+          barWidth: 10,
+          itemStyle: {
+            normal: {
+                barBorderRadius: 50,
+                color: "#4fb69d",
+            }
+          },
         }
       ]
 
     };
 
   }
+
+  
+  // 本年度各月份变电站故障次数统计
+  option2={};
   setOption2(){
 
     this.option2 = {
@@ -174,7 +225,7 @@ export class Page1LeftComponent implements OnInit {
 
       yAxis: {
         type: 'value',
-        name: '跳闸次数/次',
+        name: '故障次数',
         minInterval: 1,
         splitNumber: 4,
         nameTextStyle: {
@@ -199,7 +250,14 @@ export class Page1LeftComponent implements OnInit {
 
       series: [
         {
-          data: [2201,2530,2151,1733,1542,1471,1443,1439,1433,1374,1339,1000],
+          data: (function() {
+            var res = []
+            var len = 13
+            while (len--) {
+              res.push(Math.round(Math.random() * 100))
+            }
+            return res
+          })(),
           type: 'bar',
         }
       ]
@@ -207,5 +265,6 @@ export class Page1LeftComponent implements OnInit {
     };
 
   }
+
 
 }

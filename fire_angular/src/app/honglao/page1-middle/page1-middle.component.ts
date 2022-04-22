@@ -148,7 +148,7 @@ export class Page1MiddleComponent implements OnInit {
         data: this.bdz_data,
         },
         {
-          name: '跳闸变电站',
+          name: '故障变电站',
           type: 'scatter',
           coordinateSystem: 'geo',
           data: this.bdz_fail,
