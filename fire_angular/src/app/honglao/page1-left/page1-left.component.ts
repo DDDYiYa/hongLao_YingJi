@@ -11,9 +11,7 @@ import {NzMessageService} from "ng-zorro-antd/message";
 })
 export class Page1LeftComponent implements OnInit {
   
-  constructor(private http: CommonService, 
-              private datePipe: DatePipe, 
-              private message: NzMessageService) { }
+  constructor(private http: CommonService ) { }
 
   option={};
   option2={};

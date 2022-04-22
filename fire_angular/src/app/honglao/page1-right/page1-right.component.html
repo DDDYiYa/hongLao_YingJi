@@ -1,13 +1,23 @@
 <div class="grid-config2" style="height: 450px">
   <div class="chart-title">
     <img src="../../../assets/img/统计图.png" height="25" width="25"/>
-    电力设施故障实况
+    故障实况
   </div>
+  <div class="info-main" style="position: relative;top:18%;right:3%">
+    <ul>
+        <li><span>总变电站数</span><p>22,457</p></li>
+        <li><span>停电变电站</span><p>8</p></li>
+        <li><span>总台区数</span><p>12,457</p></li>
+        <li><span>停电台区</span><p>5</p></li>
+    </ul>
+</div>
 </div>
 
 <div class="grid-config2" style="height: 450px">
   <div class="chart-title">
     <img src="../../../assets/img/统计图.png" height="25" width="25"/>
-    辽宁省变电站跳闸次数（近一月）
+    辽宁省变电站故障统计 
+    <span style="left: 40%;top: 30%;" class="smdate" >{{ year }}/{{ month }}</span >
   </div>
+  <div echarts [options]="option" style="height: 88%; width:98%"></div>
 </div>
