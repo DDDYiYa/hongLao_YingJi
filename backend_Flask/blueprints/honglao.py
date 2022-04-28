@@ -12,6 +12,63 @@ honglao_bp = Blueprint('honglao',__name__)
 def test():
     return "test successfully"
 
+# 查询各地市变电站今年和去年得故障次数
+@honglao_bp.route('/lefttop', methods=['GET'])
+def bdz_fail_lefttop():
+    try:
+        sql = 'select city,count_thisYear,count_lastYear from bdz_fail_count'
+        result = []
+        ret = execute_sql(global_vars.db_engine, sql)
+        for item in ret:
+            ret_dict = convert_tuple_dict(item, ['city', 'count_thisYear','count_lastYear'])
+            result.append(ret_dict)
+        return jsonify({'status': Macro.STATUS_SUCCESS, 'data': result})
+    except Exception as e:
+        print('except in bdz_lefttop.')
+        app.logger.error('except in bdz_lefttop. ')
+        app.logger.exception(e)
+        return jsonify({'status': Macro.STATUS_FAIL})
+
+
+
+# 查询变电站本年度各个月份的故障次数
+@honglao_bp.route('/leftbottom', methods=['GET'])
+def bdz_fail_leftbottom():
+    try:
+        sql = 'select time,count from bdz_fail_count_thisYear'
+        result = []
+        ret = execute_sql(global_vars.db_engine, sql)
+        for item in ret:
+            ret_dict = convert_tuple_dict(item, ['time', 'count'])
+            result.append(ret_dict)
+        return jsonify({'status': Macro.STATUS_SUCCESS, 'data': result})
+    except Exception as e:
+        print('except in bdz_fail_leftbottom.')
+        app.logger.error('except in bdz_fail_leftbottom. ')
+        app.logger.exception(e)
+        return jsonify({'status': Macro.STATUS_FAIL})
+
+
+
+# 查询变电站本年度近一周的故障次数
+@honglao_bp.route('/righttbottom', methods=['GET'])
+def bdz_fail_rightbottom():
+    try:
+        sql = 'select time,count from bdz_fail_count_thisWeek'
+        result = []
+        ret = execute_sql(global_vars.db_engine, sql)
+        for item in ret:
+            ret_dict = convert_tuple_dict(item, ['time', 'count'])
+            result.append(ret_dict)
+        return jsonify({'status': Macro.STATUS_SUCCESS, 'data': result})
+    except Exception as e:
+        print('except in bdz_fail_rightbottom.')
+        app.logger.error('except in bdz_fail_rightbottom. ')
+        app.logger.exception(e)
+        return jsonify({'status': Macro.STATUS_FAIL})
+
+
+
 # 按地区查询发生故障变电站的名称、经纬度
 @honglao_bp.route('/bdz_fail/list', methods=['POST'])
 def bdz_fail_List():

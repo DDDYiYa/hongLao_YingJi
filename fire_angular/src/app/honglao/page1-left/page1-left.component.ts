@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/service/common.service';
 import {DatePipe} from "@angular/common";
-import {NzMessageService} from "ng-zorro-antd/message";
+import { NzMessageService } from "ng-zorro-antd/message";
+import { STATUS_SUCCESS } from '../../setting';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-page1-left',
@@ -11,11 +13,12 @@ import {NzMessageService} from "ng-zorro-antd/message";
 })
 export class Page1LeftComponent implements OnInit {
   
-  constructor(private http: CommonService ) { }
+  constructor(private cs: CommonService ) { }
 
   ngOnInit(): void {
-    this.setOption();
-    this.setOption2();
+    this.getData();
+    this.setOptionT();
+    this.setOptionB();
   }
 
   // 获取当前时间
@@ -24,9 +27,18 @@ export class Page1LeftComponent implements OnInit {
   month = this.now.getMonth()+1;
 
   // 各地市变电站故障次数 今年去年同期
-  option={};
-  setOption(){
-    this.option = {
+
+  // dataT :{city: string, count_thisYear: number, count_lastYear: number}[] = []
+  dataT_x: any[] | undefined
+  getData(){
+    this.cs.lefttop().subscribe( res=>{
+      this.dataT_x=res.map((value:any)=>{return value.city})
+    })
+  }
+
+  optionT={};
+  setOptionT(){
+    this.optionT = {
 
       tooltip: {
         trigger:'axis',
@@ -74,8 +86,10 @@ export class Page1LeftComponent implements OnInit {
       xAxis: [
         {
            type: 'category',
-           data: ['沈阳市', '大连市', '鞍山市', '抚顺市', '本溪市', '丹东市', '锦州市',
-                 '营口市', '阜新市', '辽阳市', '盘锦市', '铁岭市', '朝阳市', '葫芦岛市'],
+          //  data: ['沈阳市', '大连市', '鞍山市', '抚顺市', '本溪市', '丹东市', '锦州市',
+          //        '营口市', '阜新市', '辽阳市', '盘锦市', '铁岭市', '朝阳市', '葫芦岛市'],
+          //  data: this.dataT.map( (value:any)=>{return value.city} ),
+          data:this.dataT_x,
            axisLabel: {
              interval: 0,
              rotate: 50,
@@ -127,6 +141,7 @@ export class Page1LeftComponent implements OnInit {
             }
             return res
           })(),
+          // data: this.dataT_y1,
           type: 'bar',
           name:'2022',
           barWidth: 10,
@@ -138,6 +153,7 @@ export class Page1LeftComponent implements OnInit {
           },
         },
         {
+          // data: this.dataT_y2,
           data: (function() {
             var res = []
             var len = 14
@@ -164,10 +180,10 @@ export class Page1LeftComponent implements OnInit {
 
   
   // 本年度各月份变电站故障次数统计
-  option2={};
-  setOption2(){
+  optionB={};
+  setOptionB(){
 
-    this.option2 = {
+    this.optionB = {
 
       tooltip: {
         trigger:'axis',

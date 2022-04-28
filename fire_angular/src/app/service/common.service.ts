@@ -10,6 +10,27 @@ export class CommonService {
 
   constructor(private http: HttpClient) { }
 
+  // 今年和去年各个市变电站的故障次数
+  lefttop(): Observable<any> {
+    const lefttop_url = SERVERADDRESS + 'honglao/lefttop';
+    return this.http.get(lefttop_url);
+  }
+
+
+  // 本年度变电站各个月份故障次数
+  leftbottom(): Observable<any> {
+    const leftbottom_url= SERVERADDRESS + 'honglao/leftbottom';
+    return this.http.get(leftbottom_url);
+  }
+
+
+  // 本年度变电站近一周故障次数
+  righttbottom(): Observable<any> {
+    const rightbottom_url= SERVERADDRESS + 'honglao/rightbottom';
+    return this.http.get(rightbottom_url);
+  }
+
+
   // 获取json格式的辽宁省地图
   public getLNMap(): Observable<any> {
     return this.http.get('./assets/map/json/province/liaoning.json')
