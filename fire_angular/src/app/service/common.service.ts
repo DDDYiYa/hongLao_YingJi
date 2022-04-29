@@ -25,7 +25,7 @@ export class CommonService {
 
 
   // 本年度变电站近一周故障次数
-  righttbottom(): Observable<any> {
+  rightbottom(): Observable<any> {
     const rightbottom_url= SERVERADDRESS + 'honglao/rightbottom';
     return this.http.get(rightbottom_url);
   }

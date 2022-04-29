@@ -3,7 +3,6 @@ import { CommonService } from 'src/app/service/common.service';
 import {DatePipe} from "@angular/common";
 import { NzMessageService } from "ng-zorro-antd/message";
 import { STATUS_SUCCESS, STATUS_EXCEPT } from '../../setting';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-page1-left',
@@ -25,8 +24,7 @@ export class Page1LeftComponent implements OnInit {
   year = this.now.getFullYear();
   month = this.now.getMonth()+1;
 
-  // 各地市变电站故障次数 今年去年同期
-
+  // 左上图 各地市变电站故障次数 今年去年同期
   optionT={}
   setOptionT(){
     this.cs.lefttop().subscribe((res)=>{
@@ -190,7 +188,7 @@ export class Page1LeftComponent implements OnInit {
   }
 
   
-  // 本年度各月份变电站故障次数统计
+  // 左下图 本年度各月份变电站故障次数统计
   optionB={};
   setOptionB(){
     this.cs.leftbottom().subscribe((res)=>{
@@ -202,7 +200,7 @@ export class Page1LeftComponent implements OnInit {
           dataB_x.push(res.data[i].time)
           dataB_y.push(res.data[i].count)
         }
-
+        // 配置option
         this.optionB = {
 
           tooltip: {

@@ -51,7 +51,7 @@ def bdz_fail_leftbottom():
 
 
 # 查询变电站本年度近一周的故障次数
-@honglao_bp.route('/righttbottom', methods=['GET'])
+@honglao_bp.route('/rightbottom', methods=['GET'])
 def bdz_fail_rightbottom():
     try:
         sql = 'select time,count from bdz_fail_count_thisWeek'
