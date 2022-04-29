@@ -233,6 +233,25 @@ class bdz_info(db.Model):
     y = db.Column(db.Float)
     city = db.Column(db.String(128))
 
+# 各地市变电站数量 
+class bdz_count(db.Model):
+    __tablename__ = "bdz_count"
+    id = db.Column(db.Integer, primary_key=True)
+    city = db.Column(db.String(128))
+    count = db.Column(db.Integer())
+
+
+# 当日变电站故障信息
+class bdz_fail_today(db.Model):
+    __tablename__ = "bdz_fail_today"
+    id = db.Column(db.Integer, primary_key=True)
+    coding = db.Column(db.String(128), index=True)
+    name = db.Column(db.String(128))
+    x = db.Column(db.Float)
+    y = db.Column(db.Float)
+    city = db.Column(db.String(128))
+
+
 # 变电站故障信息
 class bdz_fail(db.Model):
     __tablename__ = "bdz_fail"

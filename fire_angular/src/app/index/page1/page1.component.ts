@@ -261,11 +261,7 @@ export class Page1Component implements OnInit {
                 {
                   type: 'map',
                   geoIndex: 0,
-                  data: Object.keys(seriesData).map(city => {
-                    return {
-                      name: city, value: seriesData[city], label: null
-                    }
-                  })
+                  data: Object.keys(seriesData).map(city=>{ return { name: city, value:seriesData[city], label: null } })
                 }
               ]
             };

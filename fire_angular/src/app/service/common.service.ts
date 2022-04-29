@@ -49,16 +49,20 @@ export class CommonService {
 
   }
 
-  options = {withCredentials: true, headers: new HttpHeaders({'Content-Type': 'application/json'})};
-
-  // 本年度每个市变电站的故障次数
+  // 各地市变电站数量
   bdz_count(): Observable<any> {
-    // tslint:disable-next-line:variable-name
-    const bdz_countUrl = SERVERADDRESS + 'honglao/bdz_fail/count_thisYear';
-    return this.http.get(bdz_countUrl);
+    const bdz_map_url = SERVERADDRESS + 'honglao/bdz_map';
+    return this.http.get(bdz_map_url );
+  }
+
+  // 各地市变电站数量
+  bdz_fail_today(): Observable<any> {
+    const bdz_fail_today_url = SERVERADDRESS + 'honglao/bdz_fail_map';
+    return this.http.get(bdz_fail_today_url );
   }
 
   // 获取某个市的发生故障的变电站信息，包括变电站名称、经纬度
+  options = {withCredentials: true, headers: new HttpHeaders({'Content-Type': 'application/json'})};
   bdz_list(param: any): Observable<any> {
     const bdz_listUrl = SERVERADDRESS + 'honglao/bdz_fail/list'
     return this.http.post(bdz_listUrl, param,  this.options);

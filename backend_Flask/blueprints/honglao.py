@@ -69,6 +69,44 @@ def bdz_fail_rightbottom():
 
 
 
+# 查询变电站数量
+@honglao_bp.route('/bdz_map', methods=['GET'])
+def bdz_map():
+    try:
+        sql = 'select city,count from bdz_count'
+        result = []
+        ret = execute_sql(global_vars.db_engine, sql)
+        for item in ret:
+            ret_dict = convert_tuple_dict(item, ['name', 'value'])
+            result.append(ret_dict)
+        return jsonify({'status': Macro.STATUS_SUCCESS, 'data': result})
+    except Exception as e:
+        print('except in bdz_map.')
+        app.logger.error('except in bdz_map. ')
+        app.logger.exception(e)
+        return jsonify({'status': Macro.STATUS_FAIL})
+
+
+
+# 查询今日故障变电站信息
+@honglao_bp.route('/bdz_fail_map', methods=['GET'])
+def bdz_fail_map():
+    try:
+        sql = 'select name,coding,x,y,city from bdz_fail_today'
+        result = []
+        ret = execute_sql(global_vars.db_engine, sql)
+        for item in ret:
+            ret_dict = convert_tuple_dict(item, ['name', 'coding','x','y','city'])
+            result.append(ret_dict)
+        return jsonify({'status': Macro.STATUS_SUCCESS, 'data': result})
+    except Exception as e:
+        print('except in bdz_fail_map.')
+        app.logger.error('except in bdz_fail_map. ')
+        app.logger.exception(e)
+        return jsonify({'status': Macro.STATUS_FAIL})
+
+
+
 # 按地区查询发生故障变电站的名称、经纬度
 @honglao_bp.route('/bdz_fail/list', methods=['POST'])
 def bdz_fail_List():
