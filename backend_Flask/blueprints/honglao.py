@@ -26,7 +26,7 @@ def bdz_fail_lefttop():
     except Exception as e:
         print('except in bdz_lefttop.')
         app.logger.error('except in bdz_lefttop. ')
-        app.logger.exception(e)
+        # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
 
@@ -45,7 +45,7 @@ def bdz_fail_leftbottom():
     except Exception as e:
         print('except in bdz_fail_leftbottom.')
         app.logger.error('except in bdz_fail_leftbottom. ')
-        app.logger.exception(e)
+        # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
 
@@ -64,7 +64,7 @@ def bdz_fail_rightbottom():
     except Exception as e:
         print('except in bdz_fail_rightbottom.')
         app.logger.error('except in bdz_fail_rightbottom. ')
-        app.logger.exception(e)
+        # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
 
@@ -83,7 +83,7 @@ def bdz_map():
     except Exception as e:
         print('except in bdz_map.')
         app.logger.error('except in bdz_map. ')
-        app.logger.exception(e)
+        # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
 
@@ -102,7 +102,7 @@ def bdz_fail_map():
     except Exception as e:
         print('except in bdz_fail_map.')
         app.logger.error('except in bdz_fail_map. ')
-        app.logger.exception(e)
+        # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
 
@@ -128,7 +128,7 @@ def bdz_fail_List():
     except Exception as e:
         print('except in bdz_list.')
         app.logger.error('except in bdz_list. ')
-        app.logger.exception(e)
+        # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
 # 查询每个市的变电站故障次数
@@ -154,7 +154,7 @@ def bdz_fail_Count():
         print('except in bdz_count.')
         app.logger.error('except in dbz_count. ')
         app.logger.error(sql)
-        app.logger.exception(e)
+        # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
 # 查询本年度每个市的变电站故障次数
@@ -181,6 +181,6 @@ def bdz_fail_Count_thisYear():
         print('except in bdz_count.')
         app.logger.error('except in dbz_count. ')
         app.logger.error(sql)
-        app.logger.exception(e)
+        # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
