@@ -14,8 +14,7 @@ export class Page1MiddleComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-    // 获取地图配置
+    // 获取辽宁地图配置
     this.getOption();
 
   }
@@ -38,7 +37,6 @@ export class Page1MiddleComponent implements OnInit {
   //           [122.98,39.6705],[121.864,39.0542],[121.652,39.0307],
   //           [119.737,41.108],[122.227,40.6569],[120.457,41.5706]];
 
-  // 配置辽宁地图option
   getOption(){
     // 获取辽宁地图
     this.http.get('assets/map/json/province/liaoning.json')
@@ -54,120 +52,124 @@ export class Page1MiddleComponent implements OnInit {
             for (let i = 0; i < res1.data.length; i++) {
               this.data_bdz_fail.push([(res1.data[i].x), res1.data[i].y]) 
             }
-
-            // 配置option
-            this.option={
-              tooltip: { show: true },
-              geo: {
-                geoIndex: 0,
-                name: '辽宁省',
-                map: '辽宁省',
-                top: '5%',
-                label: {
-                  show: true,
-                  textStyle: {
-                    color: 'black',
-                    fontSize: 18
-                  },
-                },
-                itemStyle: {
-                  borderColor: 'black',
-                  borderType: 'dashed',
-                  borderWidth: 1,
-                },
-                emphasis: {
-                  label: {
-                    color: 'white'
-                  },
-                  itemStyle: {
-                    areaColor: 'rgb(1,157,169)',
-                    borderColor: 'white',
-                    borderWidth: 2,
-                  }
-                }
-              },
-              legend: {
-                show: {
-                  'map': false,
-                },
-                textStyle: {
-                  color: '#fff',
-                  fontSize: 16,
-                },
-              },
-              series: [
-                {
-                name:'变电站数量',
-                type: 'map',
-                geoIndex: 0,
-                // data: this.bdz_data,
-                data: this.data_bdz_count
-                },
-                {
-                  name: '故障变电站',
-                  type: 'scatter',
-                  coordinateSystem: 'geo',
-                  visualMap: false,
-                  itemStyle: {
-                    color: 'red',
-                    borderColor: "#fff", //边框白色
-                    borderWidth: 2,      //边框宽度
-                  },
-                  tooltip:{
-                    show:true,
-                    formatter:"故障变电站"
-                  },
-                  data: this.data_bdz_fail,
-                }
-              ],
-              visualMap: {
-                left: '5%',
-                bottom: '5%',
-                show: true,
-                type: 'piecewise',
-                seriesIndex: 0,
-                splitList: [
-                  {
-                    lte: 5000,
-                    color: 'rgb(25,253,255)',
-                    label: '变电站数量小于5000'
-                  },
-                  {
-                    lt: 10000,
-                    gt: 5000,
-                    color: 'rgb(4,199,201)',
-                    label: '变电站数量大于5000小于10000'
-                  },
-                  {
-                    gte: 10000,
-                    color: 'rgb(1,157,169)',
-                    label: '变电站数量大于10000'
-                  }
-                ],
-                textStyle: {
-                  fontSize: 18,
-                  color: 'white'
-                },
-              },
-
-            };
+            // 配置地图option
+            this.setMapOption();
           } else if (res.status === STATUS_EXCEPT) {
-            console.log('获取地图变电站数据Except');
+            console.log('获取地图今日变电站故障坐标Except');
           } else {
-            console.log('获取地图变电站数据Fail');
-        }
-
+            console.log('获取地图今日变电站故障坐标Fail');
+          }
         })        
 
       } else if (res.status === STATUS_EXCEPT) {
-        console.log('获取地图变电站数据Except');
+        console.log('获取地图变电站数量Except');
       } else {
-        console.log('获取地图变电站数据Fail');
+        console.log('获取地图变电站数量Fail');
       }
-
     })
 
 
+  }
+
+
+  // 配置option
+  setMapOption(){
+
+    this.option={
+      tooltip: { show: true },
+      geo: {
+        geoIndex: 0,
+        name: '辽宁省',
+        map: '辽宁省',
+        top: '5%',
+        label: {
+          show: true,
+          textStyle: {
+            color: 'black',
+            fontSize: 18
+          },
+        },
+        itemStyle: {
+          borderColor: 'black',
+          borderType: 'dashed',
+          borderWidth: 1,
+        },
+        emphasis: {
+          label: {
+            color: 'white'
+          },
+          itemStyle: {
+            areaColor: 'rgb(1,157,169)',
+            borderColor: 'white',
+            borderWidth: 2,
+          }
+        }
+      },
+      legend: {
+        show: {
+          'map': false,
+        },
+        textStyle: {
+          color: '#fff',
+          fontSize: 16,
+        },
+      },
+      series: [
+        {
+        name:'变电站数量',
+        type: 'map',
+        geoIndex: 0,
+        // data: this.bdz_data,
+        data: this.data_bdz_count
+        },
+        {
+          name: '故障变电站',
+          type: 'scatter',
+          coordinateSystem: 'geo',
+          visualMap: false,
+          itemStyle: {
+            color: 'red',
+            borderColor: "#fff", //边框白色
+            borderWidth: 2,      //边框宽度
+          },
+          tooltip:{
+            show:true,
+            formatter:"故障变电站"
+          },
+          data: this.data_bdz_fail,
+        }
+      ],
+      visualMap: {
+        left: '5%',
+        bottom: '5%',
+        show: true,
+        type: 'piecewise',
+        seriesIndex: 0,
+        splitList: [
+          {
+            lte: 5000,
+            color: 'rgb(25,253,255)',
+            label: '变电站数量小于5000'
+          },
+          {
+            lt: 10000,
+            gt: 5000,
+            color: 'rgb(4,199,201)',
+            label: '变电站数量大于5000小于10000'
+          },
+          {
+            gte: 10000,
+            color: 'rgb(1,157,169)',
+            label: '变电站数量大于10000'
+          }
+        ],
+        textStyle: {
+          fontSize: 18,
+          color: 'white'
+        },
+      },
+
+    };
   }
 
 }
