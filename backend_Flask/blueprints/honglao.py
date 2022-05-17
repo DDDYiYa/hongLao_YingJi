@@ -184,3 +184,4 @@ def bdz_fail_Count_thisYear():
         # app.logger.exception(e)
         return jsonify({'status': Macro.STATUS_FAIL})
 
+
