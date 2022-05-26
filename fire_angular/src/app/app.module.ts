@@ -27,6 +27,10 @@ import { Page1LeftComponent } from './honglao/page1-left/page1-left.component';
 import { Page1MiddleComponent } from './honglao/page1-middle/page1-middle.component';
 import { Page1RightComponent } from './honglao/page1-right/page1-right.component';
 import { HonglaoPage1Component } from './honglao/honglao-page1/honglao-page1.component';
+import { HonglaoAlarmPage2Component } from './honglao/honglao-alarm-page2/honglao-alarm-page2.component';
+import { Page2LeftComponent } from './honglao/honglao-alarm-page2/page2-left/page2-left.component';
+import { Page2MiddleComponent } from './honglao/honglao-alarm-page2/page2-middle/page2-middle.component';
+import { Page2RightComponent } from './honglao/honglao-alarm-page2/page2-right/page2-right.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { HonglaoPage1Component } from './honglao/honglao-page1/honglao-page1.com
     Page1LeftComponent,
     Page1MiddleComponent,
     Page1RightComponent,
-    HonglaoPage1Component
+    HonglaoPage1Component,
+    HonglaoAlarmPage2Component,
+    Page2LeftComponent,
+    Page2MiddleComponent,
+    Page2RightComponent
   ],
   imports: [
     BrowserModule,

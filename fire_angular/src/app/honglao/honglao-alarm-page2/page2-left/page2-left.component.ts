@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/service/common.service';
 import { DatePipe} from "@angular/common";
 import { NzMessageService } from "ng-zorro-antd/message";
-import { STATUS_SUCCESS, STATUS_EXCEPT } from '../../setting';
+import { STATUS_SUCCESS, STATUS_EXCEPT } from '../../../setting';
 
 @Component({
-  selector: 'app-page1-left',
-  templateUrl: './page1-left.component.html',
-  styleUrls: ['./page1-left.component.css'],
+  selector: 'app-page2-left',
+  templateUrl: './page2-left.component.html',
+  styleUrls: ['./page2-left.component.css'],
   providers: [DatePipe, NzMessageService]
 })
-export class Page1LeftComponent implements OnInit {
+export class Page2LeftComponent implements OnInit {
   
   constructor(private cs: CommonService ) { }
 

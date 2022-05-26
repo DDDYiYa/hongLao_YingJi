@@ -1,0 +1,7 @@
+.info-main ul{ overflow:hidden;list-style: none;}
+.info-main li{ float:left; width: 50%; padding-bottom: 10px; 
+               text-align: center;-webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box; box-sizing: border-box}
+
+.info-main li span{ font-size: 25px; color: #fff; }
+.info-main li p{ font-size:34px; color:coral; font-weight: bold;}

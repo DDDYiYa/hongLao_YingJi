@@ -1,4 +1,5 @@
 <nz-layout>
+
   <nz-header style="width:100%;">
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
       <li style="float: left; margin-right: 1%">
@@ -8,11 +9,14 @@
         </div>
       </li>
       <li nz-menu-item routerLink="/honglao" style="font-size: large;">洪涝期变电站故障信息</li>
-      <li nz-menu-item routerLink="/history"style="font-size: large;">洪涝灾害预警</li>
+      <li nz-menu-item routerLink="/honglaoAlarm"style="font-size: large;">洪涝灾害预警</li>
     </ul>
   </nz-header>
+
   <nz-content style="background-color:black;width:100%;height:100%">
     <router-outlet></router-outlet>
   </nz-content>
+
   <!-- <nz-footer style="background-color: #142436;"></nz-footer> -->
+
 </nz-layout>

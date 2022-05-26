@@ -6,11 +6,11 @@ import { CommonService } from 'src/app/service/common.service';
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-page1-middle',
-  templateUrl: './page1-middle.component.html',
-  styleUrls: ['./page1-middle.component.css']
+  selector: 'app-page2-middle',
+  templateUrl: './page2-middle.component.html',
+  styleUrls: ['./page2-middle.component.css']
 })
-export class Page1MiddleComponent implements OnInit {
+export class Page2MiddleComponent implements OnInit {
   constructor(private cs:CommonService, private http:HttpClient, private router:Router) { }
 
   ngOnInit(): void {
@@ -33,10 +33,10 @@ export class Page1MiddleComponent implements OnInit {
 
   setLiaoningOption(){
     if (this.Map) { this.Map.dispose() }
+    // 获取dom元素，并用echart初始化
+    this.Map = echarts.init(document.getElementById('map2')!);
     this.region='辽宁省';
     this.mapTurnBack=false;
-    // 获取dom元素，并用echart初始化
-    this.Map = echarts.init(document.getElementById('map')!);
     // 获取辽宁地图
     this.http.get('assets/map/json/province/liaoning.json')
       .subscribe(geoJson=>{echarts.registerMap('辽宁省', (geoJson) as any)})
