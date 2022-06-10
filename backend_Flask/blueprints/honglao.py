@@ -35,11 +35,11 @@ def bdz_fail_lefttop():
 @honglao_bp.route('/leftbottom', methods=['GET'])
 def bdz_fail_leftbottom():
     try:
-        sql = 'select time,count from bdz_fail_count_thisYear'
+        sql = 'select time,count_thisYear,count_lastYear from bdz_fail_count_difMonth'
         result = []
         ret = execute_sql(global_vars.db_engine, sql)
         for item in ret:
-            ret_dict = convert_tuple_dict(item, ['time', 'count'])
+            ret_dict = convert_tuple_dict(item, ['time', 'count_thisYear','count_lastYear'])
             result.append(ret_dict)
         return jsonify({'status': Macro.STATUS_SUCCESS, 'data': result})
     except Exception as e:

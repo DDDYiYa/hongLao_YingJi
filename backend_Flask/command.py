@@ -69,3 +69,27 @@ def forge2():
 
     db.session.commit()
     click.echo('Creates fake data successfully.')
+
+# 成假的变电站故障统计数据
+@app.cli.command()
+def forge3():
+    from faker import Faker
+    db.create_all() # create tables
+
+    fake=Faker('zh_CN')
+    click.echo('working......')
+
+    time=[ '6月上旬', '6月中旬', '6月下旬', '7月上旬', 
+           '7月中旬', '7月下旬', '8月上旬', '8月中旬',
+           '8月下旬', '9月上旬', '9月中旬', '9月下旬']
+
+    for j in range(len(time)):
+        tmp_table =  bdz_fail_count_difMonth(
+            time=time[j],
+            count_thisYear=fake.random_int(min=0,max=100),
+            count_lastYear=fake.random_int(min=0,max=100),
+        )
+        db.session.add(tmp_table)
+
+    db.session.commit()
+    click.echo('Creates fake data successfully.')

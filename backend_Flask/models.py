@@ -276,6 +276,13 @@ class bdz_fail_count_thisYear(db.Model):
     time = db.Column(db.String(128))
     count = db.Column(db.Integer())
 
+# 全省本年度和去年变电站不同月份故障次数
+class bdz_fail_count_difMonth(db.Model):
+    __tablename__ = "bdz_fail_count_difMonth"
+    id = db.Column(db.Integer, primary_key=True)
+    time = db.Column(db.String(128))
+    count_thisYear = db.Column(db.Integer())
+    count_lastYear = db.Column(db.Integer())
 
 # 各地市变电站障次数(近一周)
 class bdz_fail_count_thisWeek(db.Model):

@@ -12,4 +12,9 @@ export class HonglaoPage1Component implements OnInit {
   ngOnInit(): void {
   }
 
+  regionP:string = '辽宁省';
+  regionChange(region: string){
+    this.regionP= region;
+  }
+
 }

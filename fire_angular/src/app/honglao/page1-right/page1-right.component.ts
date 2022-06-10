@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonService } from 'src/app/service/common.service';
 import { STATUS_EXCEPT, STATUS_SUCCESS } from 'src/app/setting';
 
@@ -12,13 +12,29 @@ export class Page1RightComponent implements OnInit {
   constructor(private cs: CommonService ) { }
 
   ngOnInit(): void { this.setOption() }
+  ngOnChanges(): void { this.setOption() }
 
+  bdz_count = new Map<string,number> ([
+    ['沈阳市',45381], ['大连市' ,35605],['鞍山市',16311], ['抚顺市',7210],
+    ['本溪市',4780 ], ['丹东市'  ,5960],['锦州市',4334], ['营口市',10669],
+    ['阜新市',4384 ], ['辽阳市'  ,5358],['盘锦市',4334], ['铁岭市',6069],
+    ['朝阳市',6267 ], ['葫芦岛市',4077], ['辽宁省',22457]]);
+  bdz_fail = new Map<string,number> ([
+    ['沈阳市',381], ['大连市'  ,5605],['鞍山市',311], ['抚顺市',10],
+    ['本溪市',80 ], ['丹东市'  ,960],['锦州市',34], ['营口市',669],
+    ['阜新市',84 ], ['辽阳市'  ,358],['盘锦市',34], ['铁岭市',69],
+    ['朝阳市',67 ], ['葫芦岛市',77], ['辽宁省',457]]);
+  bdz_count_city = this.bdz_count.get('辽宁省')
+  bdz_fail_city = this.bdz_count.get('辽宁省')
   now:any = new Date();
   year = this.now.getFullYear();
   month = this.now.getMonth()+1;
   day = this.now.getDate()
   option={};
+  @Input() regionC3:string = '';
   setOption(){
+    this.bdz_count_city = this.bdz_count.get(this.regionC3)
+    this.bdz_fail_city = this.bdz_fail.get(this.regionC3)
     this.cs.rightbottom().subscribe((res)=>{
       if (res.status === STATUS_SUCCESS) {
         // 获取数据

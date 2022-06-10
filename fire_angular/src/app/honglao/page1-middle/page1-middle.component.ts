@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as echarts from 'echarts';
 import { STATUS_EXCEPT, STATUS_SUCCESS } from 'src/app/setting';
 import { CommonService } from 'src/app/service/common.service';
-import {ActivatedRoute, Router} from "@angular/router";
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-page1-middle',
@@ -28,12 +28,15 @@ export class Page1MiddleComponent implements OnInit {
   data_bdz_count=[];
   data_bdz_fail:any[]=[];
   Map: echarts.EChartsType | any;
-  region:string='';
   mapTurnBack:boolean=false;
+  regionC2:string='';
+  @Output()
+  regionEvent = new EventEmitter()
 
   setLiaoningOption(){
     if (this.Map) { this.Map.dispose() }
-    this.region='辽宁省';
+    this.regionC2='辽宁省';
+    this.regionEvent.emit(this.regionC2);
     this.mapTurnBack=false;
     // 获取dom元素，并用echart初始化
     this.Map = echarts.init(document.getElementById('map')!);
@@ -77,7 +80,8 @@ export class Page1MiddleComponent implements OnInit {
   }
 
   setCityOption(city:string){
-    this.region=city;
+    this.regionC2=city;
+    this.regionEvent.emit(this.regionC2);
     this.mapTurnBack=true;
     // 获取地级市地铁
     this.http.get(`./assets/map/liaoning/${city}.json`)

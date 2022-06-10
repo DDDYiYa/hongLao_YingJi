@@ -3,9 +3,9 @@
 </div>
 
 <div class = "col2">
-  <app-page1-middle></app-page1-middle>
+  <app-page1-middle (regionEvent)="regionChange($event)"></app-page1-middle>
 </div>
 
 <div class = "col3">
-  <app-page1-right></app-page1-right>
+  <app-page1-right [regionC3]="regionP"></app-page1-right>
 </div>
